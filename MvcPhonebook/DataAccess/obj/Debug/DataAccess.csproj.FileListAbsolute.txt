@@ -1,0 +1,5 @@
+D:\2 курс\1 трим\С_Прогр\MvcPhonebook\DataAccess\bin\Debug\DataAccess.dll
+D:\2 курс\1 трим\С_Прогр\MvcPhonebook\DataAccess\bin\Debug\DataAccess.pdb
+D:\2 курс\1 трим\С_Прогр\MvcPhonebook\DataAccess\obj\Debug\DataAccess.dll
+D:\2 курс\1 трим\С_Прогр\MvcPhonebook\DataAccess\obj\Debug\DataAccess.pdb
+D:\2 курс\1 трим\С_Прогр\MvcPhonebook\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

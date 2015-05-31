@@ -1,0 +1,57 @@
+﻿@{
+    //ViewBag.Title = "EditPhone";
+}
+
+
+<h2>Phone Book</h2>
+ <link rel="stylesheet" type="text/css" href="~/Content/themes/StyleIndex.css"/>
+<div>
+        <table>
+            <tr>
+                <td>
+                    <h2 style="font-size:26px;">Edit Phone Number</h2>
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left; width:150px; text-decoration:none; color:black;"><a href="/ContactManager/Index">Manage Contacts</a></li>
+                        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/UserManager/Index">Manage Users</a></li>
+                        @if(MvcPhonebook.Models.AuthenticationManager.LoggedUser == null)
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @{
+                        <!--promeneno-->
+                    DataAccess.Entity.Phone phone = (DataAccess.Entity.Phone)ViewData["phone"];
+                    }
+                    <form action="/PhoneManager/EditPhone" method="post">
+                        <input type="hidden" name="Id" value="@phone.Id" />
+                        <input type="hidden" name="ParentContactId" value="@phone.ParentContactId" />
+                        <fieldset>
+                            <legend>Edit Contact</legend>
+                            <table>
+                                <tr>
+                                    <td>Phone Number:</td>
+                                    <td><input type="text" name="PhoneNumber" value="@phone.PhoneNumber" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="submit" value="Save" />&nbsp;<a href="/ContactManager/ContactDetails?id=@phone.ParentContactId">Cancel</a></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </td>
+            </tr>
+            </table>
+    </div>

@@ -1,0 +1,82 @@
+﻿@{
+  //  ViewBag.Title = "EditUser";
+}
+
+<h2>EditUser</h2>
+ <link rel="stylesheet" type="text/css" href="~/Content/themes/StyleIndex.css"/>
+<div>
+        <table>
+            <tr>
+                <td>
+                    <h2 style="font-size:26px;">Manage Users</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left; width:150px; text-decoration:none; color:black;"><a href="/ContactManager/Index">Manage Contacts</a></li>
+                        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/UserManager/Index">Manage Users</a></li>
+                        @if(MvcPhonebook.Models.AuthenticationManager.LoggedUser == null)
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   @{
+
+                       DataAccess.Entity.User user = (DataAccess.Entity.User)ViewData["user"];
+                    }
+                 <!-- <form action="/UserManager/EditUser" method="post">-->
+                    <form action="/UserManager/EditUser" method="post">   
+                     <input type="hidden" name="Id" value="@user.Id" />
+                        <fieldset>
+                            <legend>Edit User</legend>
+                            <table>
+                                <tr>
+                                    <td>First Name:</td>
+                                    <td><input type="text" name="FirstName" value="@user.FirstName" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name:</td>
+                                    <td><input type="text" name="LastName" value="@user.LastName" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Username:</td>
+                                    <td><input type="text" name="Username" value="@user.Username" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type="password" name="Password" value="@user.Password" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="submit" value="Save" />&nbsp;<a href="/UserManager/Index">Cancel</a></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+
+
+
+
+                    </form>
+
+
+
+                </td>
+
+
+
+            </tr>
+
+
+
+
+
+            </table>
+            </div>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPhonebook", "MvcPhonebook\MvcPhonebook.csproj", "{D686FDF4-69BB-4B47-B3D5-4DC56D751BF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{EBE888D8-6FFC-4CAA-918C-6DB0B4969ABD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D686FDF4-69BB-4B47-B3D5-4DC56D751BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D686FDF4-69BB-4B47-B3D5-4DC56D751BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D686FDF4-69BB-4B47-B3D5-4DC56D751BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D686FDF4-69BB-4B47-B3D5-4DC56D751BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE888D8-6FFC-4CAA-918C-6DB0B4969ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE888D8-6FFC-4CAA-918C-6DB0B4969ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE888D8-6FFC-4CAA-918C-6DB0B4969ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE888D8-6FFC-4CAA-918C-6DB0B4969ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

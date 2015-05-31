@@ -1,0 +1,60 @@
+﻿@{
+  //  ViewBag.Title = "Index";
+}
+
+<h1>Phone Book</h1>
+  <link rel="stylesheet" type="text/css" href="~/Content/themes/StyleIndex.css"/>
+<div>
+        <table>
+            <tr>
+                <td>
+                    <h2 style="font-size:26px;">Manage Contacts</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left; width:150px; text-decoration:none; color:black;"><a href="/ContactManager/Index">Manage Contacts</a></li>
+                        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/UserManager/Index">Manage Users</a></li>
+                        @if(MvcPhonebook.Models.AuthenticationManager.LoggedUser == null)
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/ContactManager/EditContact">Create new contact</a>
+                    <table>
+                        <tr>
+                            <td>Full Name:</td>
+                            <td>Email:</td>
+                            <td>    </td>
+                             <td>    </td>
+                             <td>    </td>
+                            
+                        </tr>
+                        @foreach (DataAccess.Entity.Contact cont in (List<DataAccess.Entity.Contact>)ViewData["contacts"])
+                        {
+                            var detailsLink = "/ContactManager/ContactDetails?id=" + cont.Id;
+                            var editLink="/ContactManager/EditContact?id="+ cont.Id;
+                            var deleteLink = "/ContactManager/DeleteContact?id="+ cont.Id;
+                            
+                        <tr>
+                            <td>@cont.FullName</td>
+                            <td>@cont.Email</td>
+                            <td><a href="@detailsLink">Details</a></td>
+                            <td><a href="@editLink"> Edit</a></td>
+                            <td><a href="@deleteLink">Delete </a></td>
+                        </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+            </table>
+    </div>

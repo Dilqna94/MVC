@@ -1,0 +1,29 @@
+﻿@{
+   ViewBag.Title = "Index"; 
+}
+
+<!DOCTYPE  html>
+<html>
+    <head>
+         <link rel="stylesheet" type="text/css" href="~/Content/themes/StyleIndex.css"/>
+        <title>My Phone Book</title>
+    </head>
+    <body>
+        <h1 style="text-align:center; font-family:'Times New Roman'; font-size:30px;">Phone Book </h1>
+        <p style="text-align:left; font-family:'Times New Roman'; font-size:20px;">Welcome in our phonebook application, now you can log if you want </p>
+          <ul style="list-style:none;">
+                        <li ><a style="float:left; width: 150px; font-size:17px; color: black;"href="/ContactManager/Index">Manage Contacts</a></li>
+                        <li ><a style=" float:left; width: 150px; font-size:17px; color: black;" href="/UserManager/Index">Manage Users</a></li>
+                 
+       @if(MvcPhonebook.Models.AuthenticationManager.LoggedUser ==null) 
+       {
+         <li>  <a style="float:left;width: 150px; font-size:17px; color: black;"href="/Home/Login">Login</a></li>
+       }
+        else
+        {
+          <li> <a href="/Home/Logout">Logout</a></li>
+       }
+              </ul>
+    </body>
+      
+</html>

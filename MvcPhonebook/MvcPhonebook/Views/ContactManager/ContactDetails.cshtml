@@ -1,0 +1,64 @@
+﻿@{
+    //ViewBag.Title = "ContactDetails";
+}
+
+<h2>Phone Book</h2>
+ <link rel="stylesheet" type="text/css" href="~/Content/themes/StyleIndex.css"/>
+<div>
+        <table>
+            <tr>
+                <td>
+                    <h2 style="font-size:26px;">Manage Contacts</h2>
+                    <h4>Details</h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style:none;">
+                        <li style="float:left; width:150px; text-decoration:none; color:black;"><a href="/ContactManager/Index">Manage Contacts</a></li>
+                        <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/UserManager/Index">Manage Users</a></li>
+                        @if(MvcPhonebook.Models.AuthenticationManager.LoggedUser == null)
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Login">Login</a></li>
+                        }
+                        else
+                        {
+                            <li style="float: left; width: 150px; text-decoration: none; color: black;"><a href="/Home/Logout">Logout</a></li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @{
+                        var cont = (DataAccess.Entity.Contact)ViewData["contact"];
+                    
+                    }
+                    Full Name: @cont.FullName;<br/>
+                    Email: @cont.Email;<br />
+                      <a href="/PhoneManager/EditPhone/?parentContactId=@cont.Id">Create new</a> <br />
+                    <table>
+                        <tr>
+                            <td>Phone:</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                                </tr>
+                        @foreach(DataAccess.Entity.Phone phone in (List<DataAccess.Entity.Phone>)ViewData["phones"])
+                        {
+                            var editLink = "/PhoneManager/EditPhone?id=" + phone.Id;
+                            var deleteLink = "/PhoneManager/DeletePhone?id=" + phone.Id;
+                            <tr>
+                              <td> @phone.PhoneNumber</td>
+                                <td><a href="@editLink">Edit</a></td>
+                                <td><a href="@deleteLink">Delete</a></td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </td>
+             </tr>
+
+            </table>
+            </div>
